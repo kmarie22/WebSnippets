@@ -1,0 +1,30 @@
+<div class="container">
+<div class="col-tabs">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active"><a data-toggle="tab" href="#Popular_Topics">Popular Topics</a></li>
+    <li><a data-toggle="tab" href="#Latest_Comments">Latest Comments</a></li>
+    <li><a data-toggle="tab" href="#Featured_Blogs">Featured Blogs</a></li>
+
+  </ul>
+
+  <div class="tab-content">
+    <div id="Popular_Topics" class="tab-pane fade in active">
+      <p><@component id="forums.widget.recent-threads" /></p>
+
+    </div>
+    <div id="Latest_Comments" class="tab-pane fade">
+
+      <p><@component id="forums.widget.recent-messages" /></p>
+    </div>
+    <div id="Featured_Blogs" class="tab-pane fade">
+          <#assign featuredBlogs= rest('/boards/id/blog/threads/featured').threads/>
+          </p>
+    </div>
+</div>
+</div>
+    <div class="col-announcements">
+	<div class="aside">
+		<div style="height:550px;  overflow:auto;"><@component id="common.widget.announcement" /> </div> 
+	</div>
+</div>
+</div>

@@ -1,0 +1,54 @@
+ <div class="container">
+    <div class="col-category1">
+	  <ul class="nav nav-pills nav-justified">
+		<li class="active"><a data-toggle="pill" href="#Latest_Posts">Latest Posts</a></li>
+		<li><a data-toggle="pill" href="#Recommendations">Recommendations</a></li>
+		<li><a data-toggle="pill" href="#Unanswered_Questions">Unanswered Questions</a></li>
+	  </ul>
+	  <div class="tab-content">
+		<div id="Latest_Posts" class="tab-pane fade in active">
+		  <p><@component id="forums.widget.recent-threads" /></p>
+		</div>
+		<div id="Recommendations" class="tab-pane fade">
+		  <p><@component id="recommendations.widget.recommended-content-taplet" /></p>
+		</div>
+		<div id="Unanswered_Questions" class="tab-pane fade">
+		  <p><@component id="forums.widget.unanswered-topics-taplet" /></p>
+		</div>   
+		</div>
+		</br>
+		<div>
+			<p><@component id="nodes.widget.child-node-list" /></p>
+		</div>
+		</br>
+		<div class="aside">
+			<p><@component id="forums.widget.users-online" /></p>
+		</div>
+	</div>
+	<div class="col-category2" style="padding-left: 30px">
+		<div class="row">
+			<div class="aside">
+				<div style="overflow:auto;"><@component id="solutions.widget.accepted-solutions-leaderboard-taplet" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div class="aside">
+				<div style="overflow:auto;"><@component id="kudos.widget.authors-leaderboard" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div class="aside">
+				<div style="0verflow:auto;"><@component id="kudos.widget.messages-leaderboard" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div class="aside">
+				<div style="overflow:auto;"><@component id="tags.widget.tag-cloud" /> </div> 
+			</div>
+			</br>
+		</div>
+	</div>
+</div>

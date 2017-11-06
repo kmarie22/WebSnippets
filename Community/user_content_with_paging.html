@@ -1,0 +1,169 @@
+	<#assign uid = page.context.user.id/>
+    <#assign userMessages= rest('/users/id/' + uid +'/posts/messages').messages/>
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a data-toggle="pill" href="#Latest_Topics">Latest Posts by User</a></li>
+	    <li><a data-toggle="pill" href="#Topics">User Topics</a></li>
+	    <li><a data-toggle="pill" href="#Replies">User Replies</a></li>
+	    <li><a data-toggle="pill" href="#Blogs">User Blogs</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="Latest_Topics" class="tab-pane fade in active">
+      		<p><@component id="forums.widget.recent-messages" /></p>
+    	</div>
+    	<div id="Topics" class="tab-pane fade">
+    			<div class="lia-panel" style="padding-top:10px">
+					<div class="lia-panel-heading-bar">
+					<#assign thread_count = 0/>
+					<#list userMessages.message as m>
+						<#assign d = rest('/messages/id/' + m.id + '/depth')/>
+				        <#assign b = rest('/messages/id/' + m.id + '/board').board/>
+						<#if d.value == "0" && b.title != "Blog">
+							<#assign thread_count += 1>
+						</#if>
+					</#list>
+					<#assign itemPerPage = 5/>
+					<#if webuisupport.path.parameters.name.get("page")??>
+						<#assign page_number =  webuisupport.path.parameters.name.get("page")  /> 
+					<#else>
+						<#assign page_number = 1  /> 
+					</#if>
+					<#assign pageable_item = webuisupport.paging.pageableItem
+					  .setCurrentPageNumber(page_number)
+					   .setItemsPerPage(itemPerPage)
+					    .setTotalItems(thread_count?number)
+					     .setPagingMode("enumerated")
+					      .build />
+					<#assign thread_list = rest("/users/id/" + uid +"/posts/messages?restapi.response_style=view&page_size=${itemPerPage}&page=${page_number}").messages/>
+		                <span class="lia-panel-heading-bar-title">User Topics <div style="text-align:right"><@component id="common.widget.pager" pageableItem=pageable_item /></div></span>
+		            </div>
+		                <div class="lia-panel-content" style="padding:0">
+		                	<table class="lia-list-wide">
+		                	      <colgroup>
+								    <col style="width:80%">
+								    <col style="width:5%">
+								    <col style="width:5%">
+								    <col style="width:10%">
+								  </colgroup> 
+								<thead>
+			                		<tr>
+			                			<th>Subject</th>
+			                			<th>Views</th>
+			                			<th>Kudos</th>
+			                			<th>Posted</th>
+			                		</tr>
+			                	</thead>
+		                		<tbody>
+				                	<#list thread_list.message as m>
+				                		<#assign d = rest('/messages/id/' + m.id + '/depth')/>
+				                		<#assign b = rest('/messages/id/' + m.id + '/board').board/>
+				                		<#if d.value == "0" && b.title != "Blog">
+						                	<tr>
+						                		<td style="border-top:0; border-bottom: 1px solid #e8e8e8;"><a style="color: #1F1F1F;" href="${m.@view_href}">${m.subject}</a>
+						                		</br>
+				                                <a class="local-time xsmall-text lia-link-navigation" href="${m.board.@view_href}"> ${b.title} </a></td>
+						                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.views.count}</td>
+						                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.kudos.count}</td>
+						                		<#if m.post_time.@view_friendly_date??>
+		    										<td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+												<#else>
+												    <td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+												</#if>
+						                	</tr>
+					                	</#if>
+					                </#list>
+					            </tbody>
+				            </table>
+				        </div>
+				</div>        
+		</div>
+        <div id="Replies" class="tab-pane fade">
+            <div class="lia-panel" style="padding-top:10px">
+				<div class="lia-panel-heading-bar">
+	                <span class="lia-panel-heading-bar-title">User Replies</span>
+	            </div>    
+	                <div class="lia-panel-content" style="padding:0">
+		                <table class="lia-list-wide">
+	                	      <colgroup>
+							    <col style="width:80%">
+							    <col style="width:5%">
+							    <col style="width:5%">
+							    <col style="width:10%">
+							  </colgroup> 
+							<thead>
+		                		<tr>
+		                			<th>Subject</th>
+		                			<th>Views</th>
+		                			<th>Kudos</th>
+		                			<th>Posted</th>
+		                		</tr>
+		                	</thead>
+		                	<tbody>
+			                	<#list userMessages.message as m>
+			                	    <#assign d = rest('/messages/id/' + m.id + '/depth')/>
+			                		<#if d.value != "0">
+					                	<tr>
+					                		<td style="border-top:0; border-bottom: 1px solid #e8e8e8;"><a style="color: #1F1F1F;" href="${m.@view_href}">${m.subject}</a>
+					                		</br>
+			                                <#assign b = rest('/messages/id/' + m.id + '/board').board/>
+			                                <a class="local-time xsmall-text lia-link-navigation" href="${m.board.@view_href}"> ${b.title} </a></td>
+					                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.views.count}</td>
+					                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.kudos.count}</td>
+					                		<#if m.post_time.@view_friendly_date??>
+	    										<td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+											<#else>
+											    <td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+											</#if>
+					                	</tr>
+				                	</#if>
+				                </#list>
+				            </tbody>
+			            </table>
+			        </div>
+			</div>        
+		</div>
+		<div id="Blogs" class="tab-pane fade">
+      		<div class="lia-panel" style="padding-top:10px">
+				<div class="lia-panel-heading-bar">
+	                <span class="lia-panel-heading-bar-title">User Blogs</span>
+	            </div> 
+	            	<div class="lia-panel-content" style="padding:0">
+		                	<table class="lia-list-wide">
+	                	      <colgroup>
+							    <col style="width:80%">
+							    <col style="width:5%">
+							    <col style="width:5%">
+							    <col style="width:10%">
+							  </colgroup> 
+							<thead>
+		                		<tr>
+		                			<th>Subject</th>
+		                			<th>Views</th>
+		                			<th>Kudos</th>
+		                			<th>Posted</th>
+		                		</tr>
+		                	</thead>
+		                	<tbody>
+			                	<#list userMessages.message as m>
+			                		<#assign d = rest('/messages/id/' + m.id + '/depth')/>
+			                		<#assign b = rest('/messages/id/' + m.id + '/board').board/>
+			                		<#if b.title == "Blog" && d.value == "0">
+					                	<tr>
+					                		<td style="border-top:0; border-bottom: 1px solid #e8e8e8;"><a style="color: #1F1F1F;" href="${m.@view_href}">${m.subject}</a>
+					                		</br>
+					                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.views.count}</td>
+					                		<td align="center" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.kudos.count}</td>
+					                		<#if m.post_time.@view_friendly_date??>
+	    										<td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+											<#else>
+											    <td align="right" style="border-top:0; border-bottom: 1px solid #e8e8e8;">${m.post_time.@view_date}</td>
+											</#if>
+					                	</tr>
+				                	</#if>
+				                </#list>
+				            </tbody>
+			            </table>
+			        </div>
+			    </div>
+	        </div>
+    	</div>
+	</div>

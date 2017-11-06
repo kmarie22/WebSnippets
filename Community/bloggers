@@ -1,0 +1,24 @@
+<#assign blogID = coreNode.id/>
+<#assign bloggers = rest('/boards/id/' + blogID + '/authors').users />
+    			<div class="lia-panel" style="padding-top:10px">
+					<div class="lia-panel-heading-bar">
+		                <span class="lia-panel-heading-bar-title">Bloggers</span>
+		            </div>
+		                <div class="lia-panel-content" style="padding:0">
+		                	<table class="lia-list-wide">
+		                	      <colgroup>
+								    <col style="width:10%">
+								    <col style="width:90%">
+								  </colgroup> 
+		                		<tbody>
+				                	<#list bloggers.user as u>
+				                		<#assign userAvatar = rest('/users/id/' + u.id + '/profiles/avatar').image.url/>
+						                	<tr>
+						                		<td style="border-top:0; border-bottom: 1px solid #e8e8e8;"><a style="color: #1F1F1F;" href="${u.@view_href}"><img src="${userAvatar}" alt="user_avatar"></a></td>
+						                		<td style="border-top:0; border-bottom: 1px solid #e8e8e8;"><a style="color: #1F1F1F;" href="${u.@view_href}">${u.login}</a></td>
+						                	</tr>
+					                </#list>
+					            </tbody>
+				            </table>
+				        </div>
+				</div> 

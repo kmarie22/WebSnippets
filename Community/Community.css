@@ -1,0 +1,311 @@
+.header_container {
+    margin-right: auto;
+    height: 67px;
+    width: 100%;
+    padding-top: 5px;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    background-color: #E2E3E7;
+}
+
+.lia-mobile-header{
+	display: none;
+}
+
+#headerlogo .TDLogo {
+     width: 250px;
+     display: block;
+     float: left;
+	 padding-left: 50px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#headerlogo .TDLogo img {
+     max-width: 100%;
+}
+
+.community-title {
+    font-family: "acumin-pro", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 32px;
+    color: #777;
+}
+
+#headerlogo .community-title {
+    display:block;
+    float: left;
+    margin-left: 15px;
+    padding-bottom: 13px;
+    padding-top: 5px;
+}
+
+/* Begin Styling for Vitality component*/
+
+.lia-quilt-vitality {
+    border-bottom: 0px solid #e2e3e7;
+}
+
+/* put the user nav link in the top right corner*/
+.user-navigation-settings-dropdown-link {
+    margin: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/*site nav in the top left with some centering work*/
+.lia-slide-out-nav-menu-wrapper {
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 26px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.lia-component-common-widget-slide-out-user-menu .UserNavigation.lia-list-standard-inline li {
+    display: inherit;
+}
+
+.lia-quilt-column-14 {
+	height: 82px;
+    margin: 0;
+	float: right;
+	width: 356px;
+}
+
+.lia-vitality-display {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+	margin: 0;
+}
+
+	.lia-vitality-display:before {
+		background-image: url("/html/assets/td_vitality.png");
+		background-position: top left;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline;
+		height: 82px;
+		margin: 0 25px 0 0;
+		vertical-align: middle;
+		width: 81px;
+		float: left;
+    }
+
+.lia-vitality-stats {
+    position: absolute;
+    left: 10px;
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    width: 61px;
+    height: 61px;
+}
+
+.lia-vitality-value {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 23px 0 3px 0;
+}
+
+.lia-vitality-key {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    bottom: 5px;
+    font-weight: bold;
+}
+
+/* End Vitality component Styling */
+
+/*Begin Search bar styling*/
+
+.SearchForm.lia-form-inline {
+    display: table;
+    width: 700px;
+    border-radius: 3px;
+    padding: 14px 35px 15px;
+}
+/*match selector height to search bar input*/
+.lia-content select {
+    height: 46px;
+}
+/*center search button icon with other input*/
+.SearchForm.lia-form-inline .lia-button-searchForm-action {
+    height: 40px;
+}
+
+/* End Seach bar styling */
+/* Header Banner styling*/
+
+.banner-wrapper {
+	padding-bottom: 10px;
+}
+/*start mobile styling*/
+@media only screen and (max-device-width: 480px){
+	.lia-mobile-header{
+		display: inherit;
+		background-color: #E2E3E7;
+	}
+	
+	.lia-quilt-column-common-header {
+		background-color: #E2E3E7;
+	}
+
+	.header_container {
+		display: none;
+	}
+	
+	#headerlogo .TDLogo {
+		display: none;
+	}
+	
+	#headerlogo .TDLogo img {
+		display: none;
+	}
+
+	.community-title {
+		display:none;
+	}
+
+	#headerlogo .community-title {
+		display:none;
+	}
+
+	.lia-component-community-title {
+		text-align: center;
+		font-family: "acumin-pro", Helvetica, Arial, sans-serif;
+		font-style: normal;
+		font-weight: 300;
+	    font-size: 30px;
+		line-height: 32px;
+	}
+ 	
+	/*remove the metrics display*/
+	.lia-vitality-display {
+		display: none;
+	}
+	
+	.lia-quilt-column-mid-content {
+		display: none;
+	}
+	/*end remove metrics display*/
+	
+	/*remove whitespace from mobile display*/
+	.lia-quilt-column-05 {
+		display: none;
+	}
+
+	/*center community title*/
+	.lia-quilt-column-18 {
+		height: inherit;
+		width: 100%;
+		text-align: center;
+	}
+	
+	/*remove banner*/
+	.banner-wrapper {
+		padding-bottom: 10px;
+		display: none;
+	}
+	
+	/* put the user nav link in the top right corner*/
+	.user-navigation-settings-dropdown-link {
+		margin: 10px;
+		position: inline-table;
+		right: 0;
+		top: 0;
+	}
+	
+	/*Begin Search bar styling*/
+	.SearchForm.lia-form-inline {
+		display: table;
+		width: inherit;
+		border-radius: 3px;
+		padding: 14px 35px 15px;
+	}
+	/*match selector height to search bar input*/
+	.lia-content select {
+		height: 46px;
+	}
+	/*center search button icon with other input*/
+	.SearchForm.lia-form-inline .lia-button-searchForm-action {
+		height: 40px;
+	}
+	
+	.SearchForm.lia-form-inline .search-input.lia-form-type-text {
+                border-left-width: 1px;
+                border-left-style: solid;
+                border-left-color: rgb(226, 227, 231);
+	}
+	
+	.lia-content {
+		height: 46px;
+		display: none;
+	}
+	/* End Seach bar styling */
+	
+	
+	/*start styling for main links*/
+	.routes-wrapper .item {
+		display: inherit;
+		zoom: 1;
+		vertical-align: top;
+		margin-left: -4px;
+		padding: inherit;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 300px;
+	}
+	
+	.cta-button {
+		background: #EC881D;
+		background-image: url(/html/assets/cta-button-medium-arrow_white.png);
+		background-repeat: no-repeat;
+		background-position: right center;
+		color: white;
+		display: inline;
+		padding-left: 10px;
+		padding-right: 45px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		font: normal 400 18px/23px "acumin-pro", Helvetica, Arial, sans-serif;
+		text-align: left;
+		text-shadow: none;
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+		width: 100%;
+	}
+	
+	.routes-p {
+		color: #777;
+		display: inline;
+	}
+	
+	.routes-head {
+		font-family: "acumin-pro", Helvetica, Arial, sans-serif;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 26px;
+		line-height: 32px;
+		padding-bottom: 10px;
+		display: none;
+	}
+	/*end styling for main links*/
+}

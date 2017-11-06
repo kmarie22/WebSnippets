@@ -1,0 +1,61 @@
+ <div class="container">
+    <div class="col-category1">
+	  <ul class="nav nav-pills nav-justified">
+		<li class="active"><a data-toggle="pill" href="#Latest_Posts">Latest Posts</a></li>
+		<li><a data-toggle="pill" href="#Recommendations">Recent Messages</a></li>
+		<li><a data-toggle="pill" href="#Unanswered_Questions">Unanswered Questions</a></li>
+	  </ul>
+	  <div class="tab-content">
+		<div id="Latest_Posts" class="tab-pane fade in active">
+		  <p><@component id="forums.widget.recent-threads" /></p>
+		</div>
+		<div id="Recommendations" class="tab-pane fade">
+		  <p><@component id="forums.widget.recent-messages" /></p>
+		</div>
+		<div id="Unanswered_Questions" class="tab-pane fade">
+		  <p><@component id="forums.widget.unanswered-topics-taplet" /></p>
+		</div>   
+		</div>
+		</br>
+                <div>
+			<div class="lia-panel-heading-bar">
+				<span class="lia-panel-heading-bar-title">
+                                     <p class="topics-list-title">Topics List</p>
+                                </span>
+			</div>
+                        <p><@component id="paging" /></p> 
+                        <p><@component id="reply-filter" /></p> 
+                        <p><@component id="message-list" /></p> 
+                        <p><@component id="paging" /></p>
+                </div> 
+		<div>
+			<p><@component id="forums.widget.users-online" /></p>
+		</div>
+	</div>
+	<div class="col-category2" style="padding-left: 30px">
+		<div class="row">
+			<div>
+				<div style="overflow:auto;"><@component id="solutions.widget.accepted-solutions-leaderboard-taplet" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div>
+				<div style="overflow:auto;"><@component id="kudos.widget.authors-leaderboard" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div>
+				<div style="0verflow:auto;"><@component id="kudos.widget.messages-leaderboard" /> </div> 
+			</div>
+			</br>
+		</div>
+		<div class="row">
+			<div>
+				<div style="overflow:auto;"><@component id="tags.widget.tag-cloud" /> </div> 
+			</div>
+			</br>
+		</div>
+	</div>
+</div>

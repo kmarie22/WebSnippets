@@ -1,0 +1,17 @@
+ <div class="container">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active"><a data-toggle="pill" href="#Latest_Topics">Featured Articles</a></li>
+    <li><a data-toggle="pill" href="#Latest_Posts">Popular Articles</a></li>
+    <li><a data-toggle="pill" href="#Featured_Topics">Recent Articles</a></li>
+  <div class="tab-content">
+    <div id="Latest_Topics" class="tab-pane fade in active">
+      <p><@component id="tkb.widget.featured-articles-taplet" /></p>
+    </div>
+    <div id="Latest_Posts" class="tab-pane fade">
+      <p><@component id="sections.widget.sections-browser-taplet" /></p>
+    </div>
+    <div id="Featured_Topics" class="tab-pane fade">
+      <p><@component id="tkb.widget.recent-tkb-articles-taplet" /></p>
+    </div>   
+  </div>
+</div>
