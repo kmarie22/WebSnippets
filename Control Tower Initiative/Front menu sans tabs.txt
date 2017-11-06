@@ -1,0 +1,47 @@
+		<div class="menu_items">
+			<p class="centered" style="font-size: 24px; color: #FFFFFF;"><strong>Our Current Initiatives:</strong></p>
+			<table class="menu_table">
+				<tr>
+					<td class="column_20" class="block">
+						<a href="">
+							<div class="ql_img">
+								<img src=""/>
+							</div>
+								<span>Text</span>
+						</a>
+					</td>
+					<td class="column_20"class="block"> 
+						<a href="">
+							<div class="ql_img">
+								<img src=""/>
+							</div>
+							<span>Text</span>
+						</a>
+					</td>
+					<td class="column_20" class="block">
+						<a href="">
+							<div class="ql_img">
+								<img src="/"/>
+							</div>
+							<span>Text</span>
+						</a>
+					</td>
+					<td class="column_20" class="block">
+						<a href="">
+							<div class="ql_img">
+								<img src=""/>
+							</div>
+							<span>Text</span>
+						</a>
+					</td>
+					<td class="column_20" class="block">
+						<a href="">
+							<div class="ql_img">
+								<img src=""/>
+							</div>
+							<span>Text</span>
+						</a>
+					</td>
+				</tr>
+			</table>					
+		</div>
